@@ -3,22 +3,17 @@ var projects = [{title: "hola"}, {title: "hola2"}];
 // Create the class from which projects and task will inherit
 class TodoItem {
 
-    constructor(title,dueDate,priority,difficulty,id) {
+    constructor(title,dueDate,difficulty) {
         this.title = title;
         this.dueDate = dueDate;
-        this.priority = priority;
-        this.difficulty = difficulty;
-        this.id = id;
     }
 };
 
 //Create project class
 class Project extends TodoItem {
 
-    constructor(title,dueDate,priority,difficulty, description, tasks) {
-        super(title,dueDate,priority,difficulty);
-        this.description = description;
-        this.tasks = tasks;
+    constructor(title,dueDate,difficulty) {
+        super(title,dueDate,difficulty);
     }
 
     addTask(task) {
@@ -50,4 +45,4 @@ function removeItem(array,item){
     array.splice(index, 1);
 };
 
-export { projects };
+export {TodoItem,Project,Task,projects};
