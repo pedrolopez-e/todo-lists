@@ -1,4 +1,4 @@
-let projects = [];
+var projects = [];
 
 class TodoItem {
 
@@ -10,11 +10,11 @@ class TodoItem {
         this.difficulty = difficulty;
     }
 
-}
+};
 
 function addItem(item){
     projects.push(item);
-}
+};
 
 function removeItem(item){
     let index = projects.indexOf(item);
@@ -23,4 +23,6 @@ function removeItem(item){
         return;
     }
     projects.splice(index, 1);
-}
+};
+
+export {projects};
