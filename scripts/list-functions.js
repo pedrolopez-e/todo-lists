@@ -1,4 +1,4 @@
-var projects = [];
+var projects = [{title: "hola"}, {title: "hola2"}];
 
 // Create the class from which projects and task will inherit
 class TodoItem {
