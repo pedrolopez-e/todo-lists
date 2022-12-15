@@ -1,4 +1,4 @@
-import {projects,Project,Task,TodoItem} from "./list-functions.js";
+import {projects,Project,Task,TodoItem} from "./classes.js";
 
 const projectForm = `<form action="" class="project-form">
 <h2>New project</h2>
@@ -28,6 +28,10 @@ function showProject(project) {
     projectName.innerHTML = project.title;
     projectDueDate.innerHTML = project.dueDate;
     projectDifficulty.innerHTML = project.difficulty;
+
+    projectName.setAttribute("class", "grid-item");
+    projectDueDate.setAttribute("class", "grid-item");
+    projectDifficulty.setAttribute("class", "grid-item");
 
     projectContainer.setAttribute("class", "project");
 
