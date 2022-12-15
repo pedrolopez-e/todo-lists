@@ -14,11 +14,33 @@ const projectForm = `<form action="" class="project-form">
 
 const body = document.querySelector('body');
 const addButton = document.querySelector('.add-button');
+const projectsContainer = document.querySelector('.projects-container');
+
+renderProjects();
+
+function showProject(project) {
+    let projectsContainer = document.querySelector('.projects-container');
+    let projectContainer = document.createElement('div');
+    let projectName = document.createElement('h2');
+    let projectDueDate = document.createElement('div');
+    let projectDifficulty = document.createElement('div');
+    
+    projectName.innerHTML = project.title;
+    projectDueDate.innerHTML = project.dueDate;
+    projectDifficulty.innerHTML = project.difficulty;
+
+    projectContainer.setAttribute("class", "project");
+
+    projectsContainer.appendChild(projectContainer);
+    projectContainer.appendChild(projectName);
+    projectContainer.appendChild(projectDueDate);
+    projectContainer.appendChild(projectDifficulty);
+}
 
 function renderProjects() {
-    projects.forEach( project => {
-    }
-    )
+    let projectArray = document.querySelectorAll('.project');
+    projectArray.forEach(project => project.remove());
+    projects.forEach( project => showProject(project));
 };
 
 addButton.addEventListener('click', () => {
@@ -32,7 +54,7 @@ addButton.addEventListener('click', () => {
         let medium = document.createElement('option');
         let hard = document.createElement('option');
         let submit = document.createElement('button');
-        let formElements = [formTitle,projectName,projectDueDate,difficultyLabel,projectDifficulty];
+        let formElements = [formTitle,projectName,projectDueDate,difficultyLabel,projectDifficulty,submit];
         let selectElements = [easy, medium, hard];
 
         body.appendChild(form);
@@ -44,6 +66,10 @@ addButton.addEventListener('click', () => {
         })
 
         formTitle.innerHTML = "New project";
+        projectName.setAttribute("class", "input");
+        projectDueDate.setAttribute("class", "input");
+        projectDueDate.setAttribute("type", "date");
+        projectDifficulty.setAttribute("class", "input");
         projectName.setAttribute("placeholder", "Name");
         projectDueDate.setAttribute("placeholder", "Due date");
         projectDifficulty.setAttribute("placeholder", "Difficulty");
@@ -56,4 +82,16 @@ addButton.addEventListener('click', () => {
         medium.innerHTML = "Medium";
         hard.setAttribute("value", "hard");
         hard.innerHTML = "hard";
+        submit.innerHTML = "Submit";
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let values = [];
+            form.querySelectorAll('.input').forEach(field => values.push(field.value));
+            let newProject = new Project(...values);
+            projects.push(newProject);
+            newProject.id = projects.indexOf(newProject);
+            renderProjects(); 
+            form.remove();
+        })
 })

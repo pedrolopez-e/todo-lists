@@ -1,4 +1,4 @@
-var projects = [];
+var projects = [{title: 'Lavar los platos', dueDate: "22/02/2022", difficulty: "Hard"}];
 
 // Create the class from which projects and task will inherit
 class TodoItem {
