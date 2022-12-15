@@ -49,6 +49,7 @@ function renderProjects() {
 
 addButton.addEventListener('click', () => {
         let form = document.createElement('form');
+        let blur = document.createElement('div');
         let formTitle = document.createElement('h2');
         let projectName = document.createElement('input');
         let projectDueDate = document.createElement('input');
@@ -62,6 +63,7 @@ addButton.addEventListener('click', () => {
         let selectElements = [easy, medium, hard];
 
         body.appendChild(form);
+        body.appendChild(blur)
         formElements.forEach((element) => {
             form.appendChild(element);
         })
@@ -87,6 +89,7 @@ addButton.addEventListener('click', () => {
         hard.setAttribute("value", "hard");
         hard.innerHTML = "hard";
         submit.innerHTML = "Submit";
+        blur.setAttribute("class", "blur");
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -97,5 +100,6 @@ addButton.addEventListener('click', () => {
             newProject.id = projects.indexOf(newProject);
             renderProjects(); 
             form.remove();
+            blur.remove();
         })
 })

@@ -30,6 +30,11 @@ body {
     background-color: #fafafa;
 }
 
+.project:hover {
+    transform: scale(1.007);
+    cursor: pointer;
+}
+
 .project h2, .project div {
     background-color: #fafafa;
     color: #292929;
@@ -52,5 +57,28 @@ body {
     bottom: 2rem;
     font-size: 30px;
     color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.add-button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+}
+
+/* .blur {
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+} */
 
