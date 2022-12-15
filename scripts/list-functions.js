@@ -1,4 +1,4 @@
-var projects = [{title: "hola"}, {title: "hola2"}];
+var projects = [];
 
 // Create the class from which projects and task will inherit
 class TodoItem {
@@ -6,6 +6,7 @@ class TodoItem {
     constructor(title,dueDate,difficulty) {
         this.title = title;
         this.dueDate = dueDate;
+        this.difficulty = difficulty;
     }
 };
 
