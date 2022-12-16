@@ -50,7 +50,7 @@ function renderProjects() {
 addButton.addEventListener('click', () => {
         let form = document.createElement('form');
         let blur = document.createElement('div');
-        let formTitle = document.createElement('h2');
+        let formTitle = document.createElement('h3');
         let projectName = document.createElement('input');
         let projectDueDate = document.createElement('input');
         let projectDifficulty = document.createElement('select');
@@ -82,11 +82,11 @@ addButton.addEventListener('click', () => {
         projectDifficulty.setAttribute("id", "difficulty");
         difficultyLabel.setAttribute("for", "difficulty");
         difficultyLabel.innerHTML = "Difficulty: ";
-        easy.setAttribute("value", "easy");
+        easy.setAttribute("value", "Easy");
         easy.innerHTML = "Easy";
-        medium.setAttribute("value", "medium");
+        medium.setAttribute("value", "Medium");
         medium.innerHTML = "Medium";
-        hard.setAttribute("value", "hard");
+        hard.setAttribute("value", "Hard");
         hard.innerHTML = "hard";
         submit.innerHTML = "Submit";
         blur.setAttribute("class", "blur");
